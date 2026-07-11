@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gmail-automation"
+version = "1.0.0"
+description = "Gmail browser automation: cookie login, inbox/spam polling, Roblox mail helpers"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "selenium>=4.15.0",
+]
+
+[project.scripts]
+gmail-check = "gmail_automation.tools.check_cookie:main"
+gmail-poll = "gmail_automation.tools.poll_recovery:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gmail_automation*"]
