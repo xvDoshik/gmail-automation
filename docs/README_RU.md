@@ -1,16 +1,16 @@
-EN | [RU](docs/README_RU.md)
+[EN](../README.md) | RU
 
 ## gmail-automation 📧
 
-Standalone Gmail browser automation - no dependency on `work/` or `retriever-shared`.
+Standalone Gmail browser automation - без зависимости от `work/` и `retriever-shared`.
 
 ## ✨ Features
 
-- **Cookie login** 🔑 - sign in to Gmail via Netscape cookie bundle
-- **Roblox mail search** 📬 - inbox + spam via Gmail search URL
-- **Recovery code poll** ⏱️ - poll recovery code after send-code
-- **Dead cookie diagnostics** 🩺 - `cookiemismatch`, `signin_redirect`, etc.
-- **Conversation view off** ⚙️ - stable parsing
+- **Вход по cookies** 🔑 - Netscape cookie bundle
+- **Поиск писем Roblox** 📬 - inbox + spam через Gmail search URL
+- **Poll recovery-кода** ⏱️ - после send-code
+- **Диагностика мёртвых cookies** 🩺 - `cookiemismatch`, `signin_redirect`, …
+- **Отключение conversation view** ⚙️ - стабильный парсинг
 
 ## 🚀 Quick start
 
@@ -21,11 +21,11 @@ source .venv/bin/activate
 pip install -e .
 ```
 
-Google Chrome required.
+Нужен Google Chrome.
 
 ## 📋 Commands
 
-Cookie check:
+Проверка cookie:
 
 ```bash
 gmail-check /path/to/cookie.txt
@@ -33,7 +33,7 @@ gmail-check /path/to/cookie.txt --json
 gmail-check /path/to/cookie.txt --no-headless
 ```
 
-Poll recovery code (after send-code on Roblox):
+Poll recovery-кода (после send-code на Roblox):
 
 ```bash
 gmail-poll /path/to/cookie.txt --reset-now --timeout 120
@@ -51,15 +51,15 @@ with GmailSession(Path("cookie.txt"), headless=True) as session:
     code, body, html = session.poll_recovery_code(reset_ms=..., timeout_s=90)
 ```
 
-Low-level helpers live in `gmail_automation.gmail_cookie`.
+Низкоуровневые функции - в `gmail_automation.gmail_cookie`.
 
 ## 📁 Structure
 
 ```
 gmail-automation/
   gmail_automation/
-    gmail_cookie.py   # core: driver, inject, poll, spam search
-    mail_parse.py     # Roblox mail parsing
+    gmail_cookie.py   # ядро: driver, inject, poll, spam search
+    mail_parse.py     # парсинг писем Roblox
     proxy.py          # Chrome proxy extension
     session.py        # GmailSession wrapper
     tools/
